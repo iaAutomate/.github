@@ -1,19 +1,35 @@
-name: Deploy MkDocs to GitHub Pages
-on:
-  push:
-    branches:
-      - main
+site_name: Org Developer Hub
+site_description: Global safety rules, architecture, and development workflows.
 
-permissions:
-  contents: write
+theme:
+  name: material
+  features:
+    - navigation.tabs        # Horizontal top navigation tabs
+    - navigation.sections    # Collapsible sidebar sections
+    - search.suggest         # Auto-complete search bar terms
+    - content.code.copy      # Quick-copy button for code blocks
+  palette:
+    # Default theme (Dark Mode)
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+    # Fallback theme (Light Mode)
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
 
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with:
-          python-version: 3.x
-      - run: pip install mkdocs-material
-      - run: mkdocs gh-deploy --force
+# 🗺️ Sidebar Navigation Menu
+nav:
+  - "Welcome Guide": index.md
+  - "Git Workflows":
+    - "Troubleshooting & FAQ": workflow-faq.md
+  - "Engineering Standards":
+    - "Code Formatting": code-standards.md
