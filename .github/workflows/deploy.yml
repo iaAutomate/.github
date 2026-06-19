@@ -2,7 +2,7 @@ name: Deploy MkDocs to GitHub Pages
 on:
   push:
     branches:
-      - main  # Change this to 'master' if your repo uses master
+      - gh-pages  # Change this to 'master' if your repo uses master
 
 permissions:
   contents: write
